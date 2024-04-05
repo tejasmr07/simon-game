@@ -44,5 +44,3 @@ let allbtns = document.querySelectorAll(".btn");
 for (btn of allbtns) {
   btn.addEventListener("click", btnPress);
 }
-
-let a = Headers;
