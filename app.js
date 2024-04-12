@@ -22,6 +22,13 @@ function btnFlash(btn) {
   }, 250);
 }
 
+function userFlash(btn) {
+  btn.classList.add("userFlash");
+  setTimeout(function () {
+    btn.classList.remove("userFlash");
+  }, 250);
+}
+
 function levelup() {
   level++;
   h2.innerText = `Level ${level}`;
@@ -29,15 +36,21 @@ function levelup() {
   let randomIdx = Math.floor(Math.random() * 3);
   let ranColor = btns[randomIdx];
   let randbtn = document.querySelector(`.${ranColor}`);
-  console.log(randomIdx);
-  console.log(ranColor);
-  console.log(randbtn);
-
+  // console.log(randomIdx);
+  // console.log(ranColor);
+  // console.log(randbtn);
+  gameseq.push(ranColor);
+  console.log(gameseq);
   btnFlash(randbtn);
 }
 
 function btnPress() {
   console.log(this);
+  let btn = this;
+  userFlash(btn);
+
+  userColor = btn.getAttribute("id");
+  userseq.push(userColor);
 }
 
 let allbtns = document.querySelectorAll(".btn");
